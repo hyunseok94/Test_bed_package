@@ -176,7 +176,7 @@ void gazebo::TEST_BED::UpdateAlgorithm()
          else if(Step==6){
            goal_angle[0]=0*D2R;
            goal_angle[1]=0*D2R;
-           std::cout<<"H"<<std::endl;
+           std::cout<<"Ha"<<std::endl;
          }
          else{
            tar_flag=false;
