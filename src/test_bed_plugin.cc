@@ -72,7 +72,7 @@ namespace gazebo
         void Load(physics::ModelPtr _model, sdf::ElementPtr /*_sdf*/);
         void UpdateAlgorithm();
         void Callback(const std_msgs::Int16MultiArray &msg);
-
+9
 
     };
     GZ_REGISTER_MODEL_PLUGIN(TEST_BED);
@@ -121,6 +121,7 @@ void gazebo::TEST_BED::UpdateAlgorithm()
     for(int i=0; i<2;++i){
      angle_dot[i]=(angle[i]-pre_angle[i])/dt;
      pre_angle[i]=angle[i];
+     std::cout<<"A"<<std::endl;
    }
 
     if(tar_flag==true){
