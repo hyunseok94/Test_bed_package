@@ -72,7 +72,7 @@ namespace gazebo
         void Load(physics::ModelPtr _model, sdf::ElementPtr /*_sdf*/);
         void UpdateAlgorithm();
         void Callback(const std_msgs::Int16MultiArray &msg);
-9
+
 
     };
     GZ_REGISTER_MODEL_PLUGIN(TEST_BED);

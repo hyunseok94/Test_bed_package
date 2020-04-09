@@ -1,0 +1,159 @@
+<sdf version='1.6'>
+  <model name='test_bed'>
+
+<joint name="fixed to ground" type="fixed">
+      <parent>world</parent>
+      <child>BASE_BED</child>
+    </joint>
+
+    <link name='BASE_BED'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>1000</mass>
+        <inertia>
+          <ixx>800</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>800</iyy>
+          <iyz>0</iyz>
+          <izz>1600</izz>
+        </inertia>
+      </inertial>
+      <collision name='BASE_BED_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://test_bed/meshes/BASE_BED.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='BASE_BED_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://test_bed/meshes/BASE_BED.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>255 0 0 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0 0 0 0</emissive>
+          <specular>0 0 0 0</specular>
+        </material>
+      </visual>
+    </link>
+    <link name='PITCH_BED'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>1000</mass>
+        <inertia>
+          <ixx>700</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>700</iyy>
+          <iyz>0</iyz>
+          <izz>1400</izz>
+        </inertia>
+      </inertial>
+      <collision name='PITCH_BED_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://test_bed/meshes/PITCH_BED.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='PITCH_BED_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://test_bed/meshes/PITCH_BED.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0 0 255 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0 0 0 0</emissive>
+          <specular>0 0 0 0</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name='PITCH_JOINT' type='revolute'>
+      <child>PITCH_BED</child>
+      <parent>BASE_BED</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='ROLL_BED'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>1000</mass>
+        <inertia>
+          <ixx>330</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>330</iyy>
+          <iyz>0</iyz>
+          <izz>660</izz>
+        </inertia>
+      </inertial>
+      <collision name='ROLL_BED_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://test_bed/meshes/ROLL_BED.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='ROLL_BED_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://test_bed/meshes/ROLL_BED.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0 255 0 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0 0 0 0</emissive>
+          <specular>0 0 0 0</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name='ROLL_JOINT' type='revolute'>
+      <child>ROLL_BED</child>
+      <parent>PITCH_BED</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+  </model>
+</sdf>

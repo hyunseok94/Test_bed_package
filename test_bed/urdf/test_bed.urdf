@@ -1,0 +1,149 @@
+<robot
+  name="test_bed">
+  <link
+    name="BASE_BED">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="100" />
+      <inertia
+        ixx="80"
+        ixy="0"
+        ixz="0"
+        iyy="80"
+        iyz="0"
+        izz="160" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://test_bed/meshes/BASE_BED.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://test_bed/meshes/BASE_BED.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="PITCH_BED">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="100" />
+      <inertia
+        ixx="70"
+        ixy="0"
+        ixz="0"
+        iyy="70"
+        iyz="0"
+        izz="140" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://test_bed/meshes/PITCH_BED.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://test_bed/meshes/PITCH_BED.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="PITCH_JOINT"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="BASE_BED" />
+    <child
+      link="PITCH_BED" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="ROLL_BED">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="100" />
+      <inertia
+        ixx="33"
+        ixy="0"
+        ixz="0"
+        iyy="33"
+        iyz="0"
+        izz="66" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://test_bed/meshes/ROLL_BED.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://test_bed/meshes/ROLL_BED.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ROLL_JOINT"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="PITCH_BED" />
+    <child
+      link="ROLL_BED" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+</robot>
